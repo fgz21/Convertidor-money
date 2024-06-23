@@ -1,11 +1,10 @@
-import React from 'eact';
+import React from 'react';
 import './index.css';
 import Header from './components/Header';
-import Sectionlogin from './components/Sectionlogin';
 import Layout from './components/Layout';
 
 
-const App: React.FC<AppProps> = () => {
+const App: React.FC = () => {
   return (
     <div>
       <Header />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 
   interface CurrencyConverterProps {
     // No need for onConvert prop, we'll handle the conversion ourselves
@@ -10,7 +10,6 @@ import axios from 'axios';
     const [fromCurrency, setFromCurrency] = useState('VES');
     const [toCurrency, setToCurrency] = useState('USD');
     const [result, setResult] = useState(0);
-    const [exchangeRate, setExchangeRate] = useState(0);
 
     const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
