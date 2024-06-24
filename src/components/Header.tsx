@@ -6,7 +6,7 @@ const Header: React.FC = () => {
        <header className="bg-base-200 text-white py-4">
         <div className="navbar bg-base-100 justify-around">
           <div className="flex">
-            <a className="btn btn-ghost text-xl border-cyan-400 hover:bg-cyan-700 ">Ynx</a>
+            <a className="btn btn-ghost text-xl border-cyan-400 hover:bg-cyan-700 ">Developing by Ynx</a>
           </div>
           <div className="flex-none border-cyan-400">
             <ul className="menu menu-horizontal px-1">

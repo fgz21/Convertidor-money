@@ -6,18 +6,22 @@ import React, { useState, useEffect } from 'react';
   }
 
   const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState("");
     const [fromCurrency, setFromCurrency] = useState('VES');
     const [toCurrency, setToCurrency] = useState('USD');
     const [result, setResult] = useState(0);
 
     const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const parsedValue = parseFloat(value.replace(/[^\d\.,]/g, '').replace(',', ''));
-    if (!isNaN(parsedValue)) {
-      setAmount(parsedValue);
+    if (value === "") {
+      setAmount(""); // Set amount to an empty string
     } else {
-      setAmount(0);
+      const parsedValue = parseFloat(value.replace(/[^\d\.,]/g, '').replace(',', ''));
+      if (!isNaN(parsedValue)) {
+        setAmount(parsedValue.toString()); // Convert parsedValue to a string
+      } else {
+        setAmount(""); // Set amount to an empty string
+      }
     }
   };
 
@@ -42,17 +46,25 @@ import React, { useState, useEffect } from 'react';
   };
 
   const handleConvert = async () => {
-  try {
-    const apiEndpoint = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
-    const response = await fetch(apiEndpoint);
-    const data = await response.json();
-    const exchangeRate = data.rates[toCurrency];
-    const result = amount * exchangeRate;
-    setResult(result);
-  } catch (error) {
-    console.error(error);
-  }
-};
+    try {
+      const apiEndpoint = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
+      const response = await fetch(apiEndpoint);
+      const data = await response.json();
+      const exchangeRate = data.rates[toCurrency];
+
+      // Check if amount is a valid number
+      const amountValue = parseFloat(amount);
+      if (!isNaN(amountValue)) {
+        const result = amountValue * exchangeRate;
+        setResult(result);
+      } else {
+        // Handle the case where amount is not a valid number
+        setResult(0); // or some other default value
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     handleConvert();
@@ -87,16 +99,17 @@ import React, { useState, useEffect } from 'react';
           </select>
         </div>
 
-        <div className="col-span-1">
-          <label className="text-cyan-400">Valor:</label>
-          <input
-            type="text"
-            value={amount}
-            onChange={handleAmountChange}
-            className="w-full p-4 pl-10 text-sm text-cyan-400"
-            placeholder="Ingrese cantidad"
-          />
-        </div>
+      <div className="col-span-1">
+        <label className="text-cyan-400">Valor:</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={handleAmountChange}
+          className="w-full p-4 pl-10 text-sm text-cyan-400"
+          placeholder=""
+          step="0.01" // permite incrementos de 0.01
+        />
+      </div>
 
         <div className="col-span-1">
           <label className=" text-cyan-400">Valor:</label>

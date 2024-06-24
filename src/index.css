@@ -1,3 +1,176 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Responsive Styles the navbar  */
+
+/* Small screens */
+
+/* Estilos para pantallas pequeñas (320px) */
+@media (max-width: 320px) {
+  .menu {
+    flex-direction: column; /* Cambia la dirección del menú a columna */
+    width: 100%; /* Ancho del menú al 100% */
+    margin:10px;
+  }
+  .menu li {
+    width: 100%; /* Ancho de cada item del menú al 100% */
+    text-align: center; /* Alinea el texto al centro */
+  }
+  .menu a {
+    padding: 0.5rem; /* Ajusta el padding de los enlaces */
+  }
+  .menu ul {
+    padding: 0; /* Quita el padding del ul */
+  }
+  .menu details {
+    width: 100%; /* Ancho del details al 100% */
+  }
+  .menu summary {
+    padding: 0.5rem; /* Ajusta el padding del summary */
+  }
+  .menu ul li {
+    border-bottom: 1px solid #ccc; /* Agrega una línea de separación entre los items */
+  }
+  .menu ul li:last-child {
+    border-bottom: none; /* Quita la línea de separación del último item */
+  }
+}
+
+
+
+
+
+
+@media (max-width: 640px) {
+  
+  .menu {
+    flex-direction:column-reverse ;
+
+  }
+  .menu li {
+    margin-right: 5px;
+  }
+  .menu a {
+    padding: 0.5rem;
+  }
+  
+}
+
+/* Medium screens */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Ajustar el tamaño de la fuente */
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  
+  /* Ajustar el padding del navbar */
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  
+  /* Ajustar el tamaño de los iconos */
+  .fa-2x {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Large screens */
+@media (min-width: 1025px) {
+  /* Ajustar el tamaño de la fuente */
+  .text-xl {
+    font-size: 1.5rem;
+  }
+  
+  /* Ajustar el tamaño de los iconos */
+  .fa-2x {
+    font-size: 2rem;
+  }
+  
+  /* Ajustar el espacio entre los elementos del menu */
+  .menu li {
+    margin-right: 2rem;
+  }
+}
+
+
+
+/* Finish Responsive Styles the navbar  */
+
+
+/* Responsive Styles the sections  */
+
+
+/* Estilos para resoluciones pequeñas (320px - 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+ .container {
+    padding: 2rem;
+  }
+ .grid-cols-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+ .col-span-1 {
+    grid-column: 1 / -1;
+  }
+ .select,.input {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Estilos para resoluciones medianas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+ .container {
+    padding: 3rem;
+  }
+ .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ .col-span-1 {
+    grid-column: auto;
+  }
+ .select,.input {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Estilos para resoluciones grandes (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+ .container {
+    padding: 4rem;
+  }
+ .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ .col-span-1 {
+    grid-column: auto;
+  }
+ .select,.input {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Estilos para resoluciones extra grandes (1025px y superior) */
+@media (min-width: 1025px) {
+ .container {
+    padding: 5rem;
+  }
+ .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ .col-span-1 {
+    grid-column: auto;
+  }
+ .select,.input {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+
+
+/* finish Responsive Styles the sections  */
